@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby'
+import netlifyAdapter from 'gatsby-adapter-netlify'
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -10,7 +11,6 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
@@ -31,7 +31,11 @@ const config: GatsbyConfig = {
       },
       __key: 'images'
     }
-  ]
+  ],
+  adapter: netlifyAdapter({
+    excludeDatastoreFromEngineFunction: false,
+    imageCDN: false
+  })
 }
 
 export default config
