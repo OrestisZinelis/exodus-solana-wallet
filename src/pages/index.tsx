@@ -16,6 +16,7 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
   const featureBanner2 = data.contentfulFeatureBanner2
   const featureBanner3 = data.contentfulFeatureBanner3
   const basicFeatureBanner = data.contentfulBasicFeatureBanner
+  const featureCards = data.contentfulFeatureCards
 
   return (
     <main>
@@ -56,31 +57,17 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
         />
       </div>
 
-      {/* {compactBanners.map((banner, index) => (
-        <div className={`mt-${index === 0 ? '0' : '64'}`} key={index}>
-          <ImageCompactBanner
-            imgSrc={banner.image.file.url}
-            coinLogoSrc={banner.coinLogo.file.url}
-            title={banner.title}
-            text={banner.text}
-            reverse={banner.reverse}
-          />
-        </div>
-      ))}
-      <div className="mt-64">
-        <CenteredTitleWithImage title={centeredImage.title} imgSrc={centeredImage.image.file.url} />
-      </div>
       <div className="mt-64">
         <TripleDottedImageHeaderGroup
           title="Why to use Exodus wallet"
-          items={whyUseItems.map(item => ({
-            imgSrc: item.image.file.url,
-            header: item.header,
-            text: item.text
+          items={featureCards.cards.map(card => ({
+            imgSrc: card.image.file.url,
+            header: card.title.title,
+            text: card.description.description
           }))}
         />
       </div>
-      <div className="mt-64">
+      {/* <div className="mt-64">
         <NetworksSupportedBanner
           number="50+"
           networks={networks.map(network => ({
@@ -164,6 +151,26 @@ export const query = graphql`
       image {
         file {
           url
+        }
+      }
+    }
+    contentfulFeatureCards {
+      title {
+        title
+      }
+      cards {
+        ... on ContentfulFeatureCard {
+          title {
+            title
+          }
+          description {
+            description
+          }
+          image {
+            file {
+              url
+            }
+          }
         }
       }
     }
