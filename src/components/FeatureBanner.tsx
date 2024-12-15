@@ -1,7 +1,7 @@
 import React from 'react'
 import CompactBanner from './CompactBanner'
 
-interface ImageAndBannerLayoutProps {
+interface FeatureBannerLayoutProps {
   imgSrc: string
   coinLogoSrc: string
   title: string
@@ -10,7 +10,7 @@ interface ImageAndBannerLayoutProps {
   imageWidth?: string
 }
 
-const ImageAndBannerLayout: React.FC<ImageAndBannerLayoutProps> = ({
+const FeatureBannerLayout: React.FC<FeatureBannerLayoutProps> = ({
   imgSrc,
   coinLogoSrc,
   title,
@@ -32,4 +32,4 @@ const ImageAndBannerLayout: React.FC<ImageAndBannerLayoutProps> = ({
   )
 }
 
-export default ImageAndBannerLayout
+export default FeatureBannerLayout

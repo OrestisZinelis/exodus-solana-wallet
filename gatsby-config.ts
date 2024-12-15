@@ -1,5 +1,8 @@
 import type { GatsbyConfig } from 'gatsby'
 import netlifyAdapter from 'gatsby-adapter-netlify'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -30,6 +33,13 @@ const config: GatsbyConfig = {
         path: './src/images/'
       },
       __key: 'images'
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
     }
   ],
   adapter: netlifyAdapter({
