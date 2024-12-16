@@ -1,5 +1,4 @@
 import React from 'react'
-import plusAsset from '../images/networks/PLUS asset.svg'
 
 interface NetworkLogoProps {
   src: string
@@ -35,9 +34,15 @@ interface NetworksSupportedBannerProps {
   number: string
   networks: NetworkLogoProps[]
   buttonText: string
+  plusAsset?: string
 }
 
-const NetworksSupportedBanner: React.FC<NetworksSupportedBannerProps> = ({ number, networks, buttonText }) => {
+const NetworksSupportedBanner: React.FC<NetworksSupportedBannerProps> = ({
+  number,
+  networks,
+  buttonText,
+  plusAsset
+}) => {
   return (
     <div className="text-center my-8">
       <div className="relative font-roboto font-thin text-9xl text-text dark:text-dark-text">

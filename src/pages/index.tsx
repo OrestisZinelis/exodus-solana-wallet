@@ -17,6 +17,7 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
   const featureBanner3 = data.contentfulFeatureBanner3
   const basicFeatureBanner = data.contentfulBasicFeatureBanner
   const featureCards = data.contentfulFeatureCards
+  const networksSupportedBanner = data.contentfulNetworks
 
   return (
     <main>
@@ -67,17 +68,18 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
           }))}
         />
       </div>
-      {/* <div className="mt-64">
+      <div className="mt-64">
         <NetworksSupportedBanner
-          number="50+"
-          networks={networks.map(network => ({
+          number={networksSupportedBanner.title.title}
+          networks={networksSupportedBanner.networks.map(network => ({
             src: network.image.file.url,
             name: network.name,
-            ticker: network.ticker
+            ticker: network.ticket
           }))}
-          buttonText="See the Full List"
+          plusAsset={networksSupportedBanner.plus.file.url}
+          buttonText={networksSupportedBanner.buttonText}
         />
-      </div> */}
+      </div>
     </main>
   )
 }
@@ -166,6 +168,29 @@ export const query = graphql`
           description {
             description
           }
+          image {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+
+    contentfulNetworks {
+      title {
+        title
+      }
+      plus {
+        file {
+          url
+        }
+      }
+      buttonText
+      networks {
+        ... on ContentfulCoin {
+          name
+          ticket
           image {
             file {
               url
