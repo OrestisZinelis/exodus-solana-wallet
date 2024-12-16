@@ -1,9 +1,0 @@
-{
-  "backgroundImage": "/images/coin-banner-background.jpg",
-  "coinLogo": "/images/coin-logo.svg",
-  "title": "Exodus Solana Wallet",
-  "text1": "Send, Receive, and Exchange SOL",
-  "text2": "with Exodus' free and secure multi-asset wallet",
-  "logoSize": "h-32",
-  "height": "1200px"
-}
