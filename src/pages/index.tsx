@@ -8,7 +8,7 @@ import BasicFeatureBanner from '../components/BasicFeatureBanner'
 import FeatureCards from '../components/FeatureCards'
 import NetworksSupportedBanner from '../components/NetworksSupportedBanner'
 
-const IndexPage: React.FC<PageProps> = ({ data }) => {
+const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const header = data.contentfulHeader
   const coinBanner = data.contentfulCoinBanner
   const globalAssets = data.contentfulGlobalAssets
@@ -21,63 +21,63 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
 
   return (
     <main>
-      <Header logoSrc={header.logo.file.url} />
+      <Header logoSrc={header?.logo?.file?.url} />
       <CoinBanner
-        backgroundImage={coinBanner.background?.file.url}
-        coinLogo={globalAssets.coinLogo.file.url}
-        title={coinBanner.title}
-        text1={coinBanner.text1}
-        text2={coinBanner.text2}
+        backgroundImage={coinBanner?.background?.file?.url}
+        coinLogo={globalAssets?.coinLogo?.file?.url}
+        title={coinBanner?.title}
+        text1={coinBanner?.text1}
+        text2={coinBanner?.text2}
         logoSize="h-32"
-        height="1200px"
+        height={coinBanner?.height}
       />
       <FeatureBanner
-        imgSrc={featureBanner.image.file.url}
-        coinLogoSrc={globalAssets.coinLogo.file.url}
-        title={featureBanner.title.title}
-        text={featureBanner.description.description}
+        imgSrc={featureBanner?.image?.file?.url}
+        coinLogoSrc={globalAssets?.coinLogo?.file?.url}
+        title={featureBanner?.title?.title}
+        text={featureBanner?.description?.description}
       />
       <div className="mt-64">
         <FeatureBanner
-          imgSrc={featureBanner2.image.file.url}
-          coinLogoSrc={globalAssets.coinLogo.file.url}
-          title={featureBanner2.title.title}
-          text={featureBanner2.description.description}
+          imgSrc={featureBanner2?.image?.file?.url}
+          coinLogoSrc={globalAssets?.coinLogo?.file?.url}
+          title={featureBanner2?.title?.title}
+          text={featureBanner2?.description?.description}
           reverse
         />
       </div>
       <div className="mt-64">
-        <BasicFeatureBanner title={basicFeatureBanner.title.title} imgSrc={basicFeatureBanner.image.file.url} />
+        <BasicFeatureBanner title={basicFeatureBanner?.title?.title} imgSrc={basicFeatureBanner?.image?.file?.url} />
       </div>
       <div className="mt-64">
         <FeatureBanner
-          imgSrc={featureBanner3.image.file.url}
-          coinLogoSrc={globalAssets.coinLogo.file.url}
-          title={featureBanner3.title.title}
-          text={featureBanner3.description.description}
+          imgSrc={featureBanner3?.image?.file?.url}
+          coinLogoSrc={globalAssets?.coinLogo?.file?.url}
+          title={featureBanner3?.title?.title}
+          text={featureBanner3?.description?.description}
         />
       </div>
 
       <div className="mt-64">
         <FeatureCards
-          title={featureCards.title.title}
-          items={featureCards.cards.map(card => ({
-            imgSrc: card.image.file.url,
-            header: card.title.title,
-            text: card.description.description
+          title={featureCards?.title?.title}
+          items={featureCards?.cards?.map(card => ({
+            imgSrc: card?.image?.file?.url,
+            header: card?.title?.title,
+            text: card?.description?.description
           }))}
         />
       </div>
       <div className="mt-8">
         <NetworksSupportedBanner
-          number={networksSupportedBanner.title.title}
-          networks={networksSupportedBanner.networks.map(network => ({
-            src: network.image.file.url,
-            name: network.name,
-            ticker: network.ticket
+          number={networksSupportedBanner?.title?.title}
+          networks={networksSupportedBanner?.networks?.map(network => ({
+            src: network?.image?.file?.url,
+            name: network?.name,
+            ticker: network?.ticket
           }))}
-          plusAsset={networksSupportedBanner.plus.file.url}
-          buttonText={networksSupportedBanner.buttonText}
+          plusAsset={networksSupportedBanner?.plus?.file?.url}
+          buttonText={networksSupportedBanner?.buttonText}
         />
       </div>
     </main>
@@ -86,10 +86,15 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>SOL</title>
+export const Head: HeadFC<Queries.IndexPageQuery> = ({ data }) => {
+  return <title>{data?.contentfulPageData?.title}</title>
+}
 
 export const query = graphql`
-  query {
+  query IndexPage {
+    contentfulPageData {
+      title
+    }
     contentfulHeader {
       logo {
         file {
@@ -101,6 +106,7 @@ export const query = graphql`
       title
       text1
       text2
+      height
       background {
         file {
           url

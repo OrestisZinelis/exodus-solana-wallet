@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby' // Import Link from Gatsby
+import { Link } from 'gatsby'
 
 interface HeaderProps {
-  title?: string
-  logoSrc?: string
+  title?: string | null
+  logoSrc?: string | null
 }
 
 const Header: React.FC<HeaderProps> = ({ title, logoSrc }) => {
