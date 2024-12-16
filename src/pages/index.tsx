@@ -60,7 +60,7 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
 
       <div className="mt-64">
         <FeatureCards
-          title="Why to use Exodus wallet"
+          title={featureCards.title.title}
           items={featureCards.cards.map(card => ({
             imgSrc: card.image.file.url,
             header: card.title.title,
