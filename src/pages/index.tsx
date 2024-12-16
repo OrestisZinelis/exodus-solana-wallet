@@ -68,7 +68,7 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
           }))}
         />
       </div>
-      <div className="mt-64">
+      <div className="mt-8">
         <NetworksSupportedBanner
           number={networksSupportedBanner.title.title}
           networks={networksSupportedBanner.networks.map(network => ({
