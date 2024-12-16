@@ -1,7 +1,7 @@
 import React from 'react'
 import DottedImageHeader from './DottedImageHeader'
 
-interface TripleDottedImageHeaderGroupProps {
+interface FeatureCardsProps {
   title: string
   items: Array<{
     imgSrc: string
@@ -10,7 +10,7 @@ interface TripleDottedImageHeaderGroupProps {
   }>
 }
 
-const TripleDottedImageHeaderGroup: React.FC<TripleDottedImageHeaderGroupProps> = ({ title, items }) => {
+const FeatureCards: React.FC<FeatureCardsProps> = ({ title, items }) => {
   return (
     <div className="text-center my-8">
       <h2 className="font-roboto font-regular text-text dark:text-dark-text uppercase mb-6 opacity-60 text-xs tracking-widest">
@@ -25,4 +25,4 @@ const TripleDottedImageHeaderGroup: React.FC<TripleDottedImageHeaderGroupProps> 
   )
 }
 
-export default TripleDottedImageHeaderGroup
+export default FeatureCards

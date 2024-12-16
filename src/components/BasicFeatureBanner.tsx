@@ -1,11 +1,10 @@
-// src/components/CenteredTitleWithImage.tsx
 import React from 'react'
 
-interface CenteredTitleWithImageProps {
-  title: string // Text for the title
-  imgSrc: string // Source path for the image
+interface BasicFeatureBannerProps {
+  title: string
+  imgSrc: string
 }
-const CenteredTitleWithImage: React.FC<CenteredTitleWithImageProps> = ({ title, imgSrc }) => {
+const BasicFeatureBanner: React.FC<BasicFeatureBannerProps> = ({ title, imgSrc }) => {
   return (
     <div className="flex flex-col items-center gap-8 mx-auto text-center px-4 md:px-0" style={{ maxWidth: '60vw' }}>
       <h1 className="font-roboto font-thin leading-snug text-text dark:text-dark-text md:text-6xl md:leading-snug">
@@ -16,4 +15,4 @@ const CenteredTitleWithImage: React.FC<CenteredTitleWithImageProps> = ({ title, 
   )
 }
 
-export default CenteredTitleWithImage
+export default BasicFeatureBanner

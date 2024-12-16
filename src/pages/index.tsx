@@ -4,8 +4,8 @@ import type { PageProps, HeadFC } from 'gatsby'
 import Header from '../components/Header'
 import CoinBanner from '../components/CoinBanner'
 import FeatureBanner from '../components/FeatureBanner'
-import BasicFeatureBanner from '../components/CenteredTitleWithImage'
-import TripleDottedImageHeaderGroup from '../components/TripleDottedImageHeaderGroup'
+import BasicFeatureBanner from '../components/BasicFeatureBanner'
+import FeatureCards from '../components/FeatureCards'
 import NetworksSupportedBanner from '../components/NetworksSupportedBanner'
 
 const IndexPage: React.FC<PageProps> = ({ data }) => {
@@ -59,7 +59,7 @@ const IndexPage: React.FC<PageProps> = ({ data }) => {
       </div>
 
       <div className="mt-64">
-        <TripleDottedImageHeaderGroup
+        <FeatureCards
           title="Why to use Exodus wallet"
           items={featureCards.cards.map(card => ({
             imgSrc: card.image.file.url,
