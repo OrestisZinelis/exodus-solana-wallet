@@ -1,9 +1,9 @@
 import React from 'react'
 
 interface NetworkLogoProps {
-  src?: string | null // Allow src to be string, null, or undefined
-  name?: string | null // Allow name to be string, null, or undefined
-  ticker?: string | null // Allow ticker to be string, null, or undefined
+  src?: string | null
+  name?: string | null
+  ticker?: string | null
 }
 
 const NetworkLogo: React.FC<NetworkLogoProps> = ({ src, name, ticker }) => {
@@ -32,10 +32,10 @@ const NetworkLogo: React.FC<NetworkLogoProps> = ({ src, name, ticker }) => {
 }
 
 interface NetworksSupportedBannerProps {
-  number?: string | null // Allow number to be string, null, or undefined
-  networks?: NetworkLogoProps[] // This can still be an array of NetworkLogoProps, with each property allowing null or undefined
-  buttonText?: string | null // Allow buttonText to be string, null, or undefined
-  plusAsset?: string | null // Allow plusAsset to be string, null, or undefined
+  number?: string | null
+  networks?: NetworkLogoProps[]
+  buttonText?: string | null
+  plusAsset?: string | null
 }
 
 const NetworksSupportedBanner: React.FC<NetworksSupportedBannerProps> = ({
