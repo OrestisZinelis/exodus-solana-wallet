@@ -1,49 +1,50 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# Web Development / CMS Hire Code Challenge
 
-## 🚀 Quick start
+## CI/CD - CMS Integration
 
-1.  **Create a Gatsby site.**
+### Repo
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+- [GitHub repo](https://github.com/OrestisZinelis/exodus-solana-wallet)
+  - Production: Main branch
+  - Preview: Preview branch
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+### Netlify
 
-2.  **Start developing.**
+- [Netlify production page](https://exodus-solana-wallet.netlify.app/)
+- [Netlify preview page](https://preview--exodus-solana-wallet.netlify.app/)
 
-    Navigate into your new site’s directory and start it up.
+** Please send me your email addresses to send you invitations for Contentful **
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+### Netlify/Contentful Configuration
 
-3.  **Open the code and start customizing!**
+- [Images/Video](https://drive.google.com/drive/folders/1BKWtC3-PQnEETfmCLBDAjhYedFB_XVKa)
+- Merging to main or preview branches will trigger a deployment to Netlify (production and preview pages accordingly).
+- Publishing or publishing content from Contentful will trigger Netlify deployment. For this to happen I used two webhooks from Netlify.
+- If we would like changes caused by a non-developer to trigger only the preview deployment, we should add some filters in the Contentful webhooks configuration.
+- The CONTENTFUL_ACCESS_TOKEN is not exposed to the GitHub repo. I used secret env variables.
 
-    Your site is now running at http://localhost:8000!
+## Implementation Comments
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+### Decisions
 
-4.  **Learn more**
+- I used TypeScript.
+- I used Tailwind because I have library experience and wanted to speed up the implementation (I saw from the source code that you did not use Tailwind, I suppose styled-components with a BEM approach).
+- I did not use MaterialUI or other UI component libraries, because I saw that there are no complex UI components.
+- Basic light-dark theming, based on OS theme.
+- I used Netlify for simplified deployment, automatic builds and great integration with Gatsby and Contentful.
+- I used Contentful because it is fast, user-friendly and secure. TBH I had experience only with WordPress CMS in the past.
+- Set all react component props nullable, which I know, is not a good practice, but the data from contentful are nullable.I did not want to create multiple queries per component. UI Components should be loosely coupled to data.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### What I did not do
 
-## 🚀 Quick start (Netlify)
+- Use gatsbyImage
+- Get the favicon from Contentful
+- Set fields required in contentful
+- Add the possibility for a custom layout structure (using available components)
+- Did not do the CSS background/image thing (with green and gray colors)
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## Local Development
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+- Install dependencied `npm install` (Node `v20`)
+- Start it up `gatsby develop`
+- Create `.env` file in the root folder and set `CONTENTFUL_SPACE_ID` `CONTENTFUL_ACCESS_TOKEN` to get data from Contentful
